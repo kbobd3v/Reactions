@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-const Tour = ({ id, image, info, price, name }) => {
+// Now using destructuring use the props sent by parent component
+const Tour = ({ id, image, info, price, name, removeTour }) => {
   const [readMore, setReadMore] = useState(false);
   return (
     <article className='single-tour'>
@@ -10,12 +11,13 @@ const Tour = ({ id, image, info, price, name }) => {
           <h4>{name}</h4>
           <h4 className='tour-price'>${price}</h4>
         </div>
+        {/* Use substring to format the number of chars you want to use */}
         <p>{readMore ? info:`${info.substring(0, 200)}...`}
           <button onClick={() => setReadMore(!readMore)}>
             {readMore ? 'show less': 'read more'}
           </button>
         </p>
-        <button className='delete-btn'>
+        <button className='delete-btn' onClick={() => removeTour(id)}>
           Not interested
         </button>
       </footer>
