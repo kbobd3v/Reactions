@@ -7,7 +7,14 @@ function App() {
   const handleSubmit = (e) => {
     // This allows you to cancel the action in order to send it several times
     e.preventDefault();
-    setText(data);
+    let amount = parseInt(count);
+    if (count <= 0) {
+      amount = 1;
+    }
+    if (amount => text.length - 1){
+      amount = text.length - 1;
+    }
+    setText(data.slice(0,amount));
   }
 
   return (
