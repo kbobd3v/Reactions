@@ -6,6 +6,7 @@ import Values from 'values.js'
 function App() {
   const [color, setColor] = useState('');
   const [error, setError] = useState(false);
+  // Asign a default value on the list
   const [list, setList] = useState(new Values('#F15025').all(10));
 
   const handleSubmit = (e) => {
