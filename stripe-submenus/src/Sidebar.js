@@ -13,12 +13,14 @@ const Sidebar = () => {
         <FaTimes />
       </button>
       <div className='siderbar-links'>
+        {/* Let's iterate through our array of objects from data */}
         {sublinks.map((item, index) => {
           const {page, links} = item;
           return (
             <article key={index}>
               <h4>{page}</h4>
               <div className='sidebar-sublinks'>
+                {/* Then iterate through the links array which is an attribute of our objects */}
                 {links.map((item, index) => {
                   const {label, icon, url} = item;
                   return (
