@@ -32,7 +32,7 @@ const reducer = (state, action) => {
         return {...state, cart: tempCart}
     }
 
-    if (action.type== 'GET_TOTALS') {
+    if (action.type === 'GET_TOTALS') {
         // reduce receives 4 parameters, acummulator, actual value, actual index, array
         let {total, amount } = state.cart.reduce(
             (cartTotal, cartItem) => {
@@ -49,6 +49,13 @@ const reducer = (state, action) => {
         total = parseFloat(total.toFixed(2));
         
         return {...state, total, amount}
+    }
+    if (action.type == 'LOADING') {
+        return {...state, loading: true}
+    }
+    // you screwed this once,  remember
+    if (action.type === 'DISPLAY_ITEMS') {
+        return {...state, cart:action.payload, loading: false}
     }
     return state
 }
