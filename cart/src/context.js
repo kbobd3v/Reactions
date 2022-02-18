@@ -37,6 +37,10 @@ const AppProvider = ({ children }) => {
     dispatch({type: 'DECREASE', payload: id })
   }
 
+  useEffect(() => {
+    dispatch({type: 'GET_TOTALS'})
+  }, [state.cart])
+
   return (
     <AppContext.Provider
       value={{
@@ -52,7 +56,7 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
-// make sure use
+// make sure 'use' in your hooks variable names
 export const useGlobalContext = () => {
   return useContext(AppContext)
 }
